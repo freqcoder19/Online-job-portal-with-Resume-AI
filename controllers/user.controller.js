@@ -22,7 +22,6 @@ export const register = async (req, res) => {
         success: false,
       });
     }
-
     const existingAdharcard = await User.findOne({ adharcard });
     if (existingAdharcard) {
       return res.status(400).json({
@@ -39,30 +38,16 @@ export const register = async (req, res) => {
       });
     }
 
-    const file = req.file;
-    if (!file) {
-      return res.status(400).json({
-        message: "Profile image is required",
-        success: false,
-      });
-    }
-
-    const fileUri = getDataUri(file);
-    const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
-
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = new User({
       fullname,
       email,
       phoneNumber,
-      adharcard,
       pancard,
+      adharcard,
       password: hashedPassword,
       role,
-      profile: {
-        profilePhoto: cloudResponse.secure_url,
-      },
     });
 
     await newUser.save();
