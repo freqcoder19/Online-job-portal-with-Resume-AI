@@ -35,46 +35,51 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="bg-white">
+    <div className= "bg-[#0f172a] text-white shadow-md">
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16">
         <div>
-          <h1 className="text-2xl font-bold">
-            <span className="text-[#6B3AC2]"> Job </span>{" "}
-            <span className="text-[#FA4F09]">Portal</span>
-          </h1>
+          <h1 className="text-3xl font-extrabold tracking-tight">
+  <span className="bg-gradient-to-r from-yellow-400 to-yellow-200 text-transparent bg-clip-text">
+    Jobseek
+  </span>
+</h1>
+
         </div>
         <div className="flex items-center gap-10">
-          <ul className="flex font-medium items-center gap-6">
-            {user && user.role === "Recruiter" ? (
-              <>
-                <li>
-                  <Link to={"/admin/companies"}>Companies</Link>
-                </li>
-                <li>
-                  <Link to={"/admin/jobs"}>Jobs</Link>
-                </li>
-              </>
-            ) : (
-              <>
-                <li>
-                  {" "}
-                  <Link to={"/Home"}>Home</Link>
-                </li>
-                <li>
-                  {" "}
-                  <Link to={"/Browse"}>Browse</Link>{" "}
-                </li>
-                <li>
-                  {" "}
-                  <Link to={"/Jobs"}>Jobs</Link>
-                </li>
-                <li>
-                  {" "}
-                  <Link to={"/Creator"}>About</Link>
-                </li>
-              </>
-            )}
-          </ul>
+          <ul className="flex font-medium items-center gap-6 text-white">
+  <li>
+    <Link
+      to="/Home"
+      className="hover:text-yellow-400 hover:drop-shadow-[0_0_5px_rgba(250,204,21,0.8)] transition duration-200"
+    >
+      Home
+    </Link>
+  </li>
+  <li>
+    <Link
+      to="/Browse"
+      className="hover:text-yellow-400 hover:drop-shadow-[0_0_5px_rgba(250,204,21,0.8)] transition duration-200"
+    >
+      Browse
+    </Link>
+  </li>
+  <li>
+    <Link
+      to="/Jobs"
+      className="hover:text-yellow-400 hover:drop-shadow-[0_0_5px_rgba(250,204,21,0.8)] transition duration-200"
+    >
+      Jobs
+    </Link>
+  </li>
+  <li>
+    <Link
+      to="/Creator"
+      className="hover:text-yellow-400 hover:drop-shadow-[0_0_5px_rgba(250,204,21,0.8)] transition duration-200"
+    >
+     </Link>
+  </li>
+</ul>
+
           {!user ? (
             <div className=" flex items-center gap-2">
               <Link to={"/login"}>
